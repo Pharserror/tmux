@@ -2,4 +2,4 @@
 
 http://taisun.io
 
-A Tmux container with a base config to have stateful tmux sessions. 
+A Tmux container with a base config to have stateful tmux sessions in a web interface. 
