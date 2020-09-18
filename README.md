@@ -1,5 +1,3 @@
-## Taisun ![Taisun](http://taisun.io/img/TaisunSmall.png)
+## Docker Tmux Host
 
-http://taisun.io
-
-A Tmux container with a base config to have stateful tmux sessions in a web interface. 
+A Tmux container with a base config to use as a host for more containers via Vagrant

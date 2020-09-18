@@ -1,10 +1,7 @@
 # A debian jessie docker container with Tmux and some core apps installed
 
-FROM arm64v8/debian:stretch
-MAINTAINER Ryan Kuba <ryankuba@gmail.com>
-
-# Add qemu to build on x86_64 systems
-COPY qemu-aarch64-static /usr/bin
+FROM debian:buster
+MAINTAINER Adam Lind <sunboxnet@gmail.com>
 
 # Set correct environment variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,8 +10,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Base Applications install
-RUN \
-  apt-get update && apt-get -y install \
+RUN apt update -y && apt -y install \
     curl \
     gnupg \
     tmux \
@@ -23,8 +19,8 @@ RUN \
     apt-transport-https \
     procps && \
   curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
-  echo "deb [arch=arm64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
-  apt-get update && apt-get install -y --no-install-recommends \
+  echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list && \
+  apt update && apt install -y --no-install-recommends \
     docker-ce && \
   apt-get autoclean && \
   rm -rf /var/lib/apt/lists/* && \
