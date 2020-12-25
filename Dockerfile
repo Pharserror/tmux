@@ -14,7 +14,7 @@ RUN apt update -y && apt -y install \
     curl \
     gnupg \
     tmux \
-    openssh-client \
+    openssh-server \
     lsb-release \
     apt-transport-https \
     procps && \
